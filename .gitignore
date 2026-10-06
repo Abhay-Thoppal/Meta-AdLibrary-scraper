@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.sqlite3
+.env
+CLAUDE.md
+PLAN.md
+tests/fixtures/search_running.html
+tests/fixtures/page_nike_in.html
+tests/fixtures/page_nike_fr.html
+tests/fixtures/ad_detail.html

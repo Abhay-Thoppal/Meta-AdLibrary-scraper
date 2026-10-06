@@ -1,0 +1,31 @@
+[project]
+name = "meta-adlib-api"
+version = "0.1.0"
+description = "Self-hosted REST API for the public Meta Ad Library"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "playwright>=1.45",
+    "httpx[http2,socks]>=0.27",
+    "orjson>=3.10",
+    "aiosqlite>=0.20",
+]
+
+[project.optional-dependencies]
+transcribe = ["faster-whisper>=1.0"]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = ["live: hits the real Meta Ad Library"]
+addopts = "-m 'not live'"
+testpaths = ["tests"]
+pythonpath = ["."]
